@@ -1,6 +1,6 @@
 "use strict";
 
-const create_reminder = document.getElementById("create-reminder");
+const create_reminder = document.getElementById("create");
 let reminders = getSavedreminders();
 
 const filters = {
@@ -17,7 +17,7 @@ create_reminder.addEventListener("click", (e) => {
 })
 renderreminders(reminders, filters);
 
-document.querySelector("#create-reminder").addEventListener("click", (e) => {
+document.querySelector("#create").addEventListener("click", (e) => {
   const id = uuidv4();
   const timestamp = moment().valueOf();
 

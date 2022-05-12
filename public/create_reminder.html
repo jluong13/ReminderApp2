@@ -125,7 +125,15 @@
     line-height: 1.2em;
     height: 2.4em;
   }
-  
+  #text-remind {
+     resize: none;
+     width: 100%;
+     height:60%;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
+  }
+
   #notes a > p:nth-of-type(2) {
     font-size: 16px;
     font-weight: 100;
@@ -179,7 +187,7 @@
     color: #b9b9b9;
   }
   
-  .edit-container textarea {
+  .edit-container form {
     display: block;
     width: 100%;
     border: none;
@@ -198,7 +206,8 @@
     box-shadow: none;
   }
   
-  .edit-container textarea::placeholder {
+  .edit-container form::textarea {
+
     color: #707070;
   }
   
@@ -245,15 +254,20 @@
         class="title-input"
         placeholder="Title"
       />
-      <textarea
-        id="note-body"
-        class="body-input"
-        placeholder="Start a new reminder..."
-       > </textarea>
-    </div>
+      <form>
+        <center>
+        
+          <p><label for="">Create Your Reminder:</label></p>
+        
+        </center>
+        <textarea id="text-remind" name="formtext"></textarea>
+        <br>
+        <input id= "submit" type="submit" value="Submit">
+      </form>
+
     <center>
 
-      <button id="create-reminder" onclick = "createElement.addEventListener(this.id)"> Create a New Reminder</button>
+      <button id="create-reminder" > Create a New Reminder</button>
 
     </center>
     <!-- //Linking the HTML to our Javascript files which contain our scripts. --> 

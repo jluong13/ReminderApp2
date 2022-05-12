@@ -1,10 +1,18 @@
 "use strict";
 
-const titleElement = document.querySelector("#reminder-title");
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+      navigator.serviceWorker
+          .register('../serviceWorker.js')
+          .then(res => console.log('Service worker registered'))
+          .catch(err => console.log('Service worker not registered', err))
+  }) 
+}
+
 const bodyElement = document.querySelector("#reminder-body");
 const createElement = document.querySelector("#create-reminder");
 const reminderId = location.hash.substring(1);
-const titleId = document.querySelector()
+const submitBtn = document.querySelector("#submit");
 let reminders = getSavedreminders();
 let reminder = reminders.find((reminder) => reminder.id === reminderId);
 
@@ -12,22 +20,17 @@ let reminder = reminders.find((reminder) => reminder.id === reminderId);
   location.assign("index.html");
 }
 */
-titleElement.value = reminder.title;
-bodyElement.value = reminder.body;
 
-titleElement.addEventListener("input", (e) => {
-  reminder.title = e.target.value;
-  reminder.updatedAt = moment().valueOf();
-  savereminders(reminders);
-});
 
-bodyElement.addEventListener("input", (e) => {
-  reminder.body = e.target.value;
-  reminder.updatedAt = moment().valueOf();
-  savereminders(reminders);
-});
 
 createElement.addEventListener("click", (e) => {
+
+  e.preventDefault();
+  //location.assign("index.html");
+  window.location.href = "index.html";
+});
+
+submitBtn.addEventListener("click", (e) => {
 
   e.preventDefault();
   //location.assign("index.html");

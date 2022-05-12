@@ -115,12 +115,7 @@ const renderreminders = (reminders, filters) => {
       const reminderEl = generatereminderDOM(reminder);
       remindersEl.appendChild(reminderEl);
     });
-  } else {
-    const emptyMessage = document.createElement("p");
-    emptyMessage.textContent = "Create your first reminder!";
-    emptyMessage.classList.add("empty-message");
-    remindersEl.appendChild(emptyMessage);
-  }
+  } 
 };
 
 // Generate the last edited message

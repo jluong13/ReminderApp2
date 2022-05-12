@@ -2,6 +2,15 @@ const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker
+            .register('../serviceWorker.js')
+            .then(res => console.log('Service worker registered'))
+            .catch(err => console.log('Service worker not registered', err))
+    }) 
+}
+
 // When the login button is clicked, the following code is executed
 loginButton.addEventListener("click", (e) => {
     // Prevent the default submission of the form
